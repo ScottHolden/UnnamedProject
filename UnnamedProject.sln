@@ -10,21 +10,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.targets = Directory.Build.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnnamedProject.Physics", "src\UnnamedProject.Physics\UnnamedProject.Physics.csproj", "{EA267CA5-7806-4E10-B0A1-82D0DA2A935D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnnamedProject.Physics", "src\UnnamedProject.Physics\UnnamedProject.Physics.csproj", "{EA267CA5-7806-4E10-B0A1-82D0DA2A935D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A6CD18FD-AD82-4ED4-9100-00A4892AE99B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3E36CF07-8894-4F2C-BFA9-F73C30348303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnnamedProject.Engine", "src\UnnamedProject.Engine\UnnamedProject.Engine.csproj", "{20DC9FBA-3D62-4B63-9D1A-D58FFF67E746}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnnamedProject.Engine", "src\UnnamedProject.Engine\UnnamedProject.Engine.csproj", "{20DC9FBA-3D62-4B63-9D1A-D58FFF67E746}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnnamedProject.Render.Software", "src\UnnamedProject.Render.Software\UnnamedProject.Render.Software.csproj", "{1437160F-2F79-49D7-AA0C-41FA91929C19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnnamedProject.Render.Software", "src\UnnamedProject.Render.Software\UnnamedProject.Render.Software.csproj", "{1437160F-2F79-49D7-AA0C-41FA91929C19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnnamedProject.Client.WPF", "src\UnnamedProject.Client.WPF\UnnamedProject.Client.WPF.csproj", "{045ED046-CC4F-46D3-B3AA-4E3DAEAD448E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnnamedProject.Client.WPF", "src\UnnamedProject.Client.WPF\UnnamedProject.Client.WPF.csproj", "{045ED046-CC4F-46D3-B3AA-4E3DAEAD448E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnnamedProject.Resources.Demo", "src\UnnamedProject.Resources.Demo\UnnamedProject.Resources.Demo.csproj", "{10BAFEA9-1A85-4247-ACF1-51D3EE6086C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnnamedProject.Resources.Demo", "src\UnnamedProject.Resources.Demo\UnnamedProject.Resources.Demo.csproj", "{10BAFEA9-1A85-4247-ACF1-51D3EE6086C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnnamedProject.Render.Software.UnitTests", "test\UnnamedProject.Render.Software.UnitTests\UnnamedProject.Render.Software.UnitTests.csproj", "{355E0A7B-6FB6-4190-A1D6-5E2F4BBA7E61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnnamedProject.Render.Software.UnitTests", "test\UnnamedProject.Render.Software.UnitTests\UnnamedProject.Render.Software.UnitTests.csproj", "{355E0A7B-6FB6-4190-A1D6-5E2F4BBA7E61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnnamedProject.Client.ExperimentalConsole", "src\UnnamedProject.Client.ExperimentalConsole\UnnamedProject.Client.ExperimentalConsole.csproj", "{6B27B131-322D-4206-9A60-8DDC8B985F64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{355E0A7B-6FB6-4190-A1D6-5E2F4BBA7E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{355E0A7B-6FB6-4190-A1D6-5E2F4BBA7E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{355E0A7B-6FB6-4190-A1D6-5E2F4BBA7E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B27B131-322D-4206-9A60-8DDC8B985F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B27B131-322D-4206-9A60-8DDC8B985F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B27B131-322D-4206-9A60-8DDC8B985F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B27B131-322D-4206-9A60-8DDC8B985F64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{045ED046-CC4F-46D3-B3AA-4E3DAEAD448E} = {A6CD18FD-AD82-4ED4-9100-00A4892AE99B}
 		{10BAFEA9-1A85-4247-ACF1-51D3EE6086C9} = {A6CD18FD-AD82-4ED4-9100-00A4892AE99B}
 		{355E0A7B-6FB6-4190-A1D6-5E2F4BBA7E61} = {3E36CF07-8894-4F2C-BFA9-F73C30348303}
+		{6B27B131-322D-4206-9A60-8DDC8B985F64} = {A6CD18FD-AD82-4ED4-9100-00A4892AE99B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1556EA07-CC3F-4D2B-9BF0-F08A2D8F9321}
