@@ -55,7 +55,7 @@ namespace UnnamedProject.Client.ExperimentalConsole
                             if (_fpsUpdate++ > AvgFPSFilter / 2)
                             {
                                 string fps = Math.Round(_avgFPS, 2) + " FPS";
-                                //Debug.WriteLine(fps);
+                                Debug.WriteLine(fps);
                                 _fpsUpdate = 0;
                             }
                         }
