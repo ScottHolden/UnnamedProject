@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnnamedProject.Physics\UnnamedProject.Physics.csproj" />
+    <ProjectReference Include="..\UnnamedProject.Engine\UnnamedProject.Engine.csproj" />
   </ItemGroup>
 
 </Project>

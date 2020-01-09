@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnnamedProject.Engine\UnnamedProject.Engine.csproj" />
+    <ProjectReference Include="..\UnnamedProject.Render.Software\UnnamedProject.Render.Software.csproj" />
+  </ItemGroup>
+
+</Project>
