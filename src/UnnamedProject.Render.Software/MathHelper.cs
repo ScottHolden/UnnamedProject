@@ -18,9 +18,9 @@ namespace UnnamedProject.Render.Software
         }
         public static (float z, int x) InterpolateZX(int y, Vector3 pa, Vector3 pb)
         {
-            float gradient = MathHelper.GetGradient(y, pa, pb);
-            float z = MathHelper.Interpolate(pa.Z, pb.Z, gradient);
-            int x = (int)MathHelper.Interpolate(pa.X, pb.X, gradient);
+            float gradient = GetGradient(y, pa, pb);
+            float z = Interpolate(pa.Z, pb.Z, gradient);
+            int x = (int)Interpolate(pa.X, pb.X, gradient);
             return (z, x);
         }
         public static (Vector3 p1, Vector3 p2, Vector3 p3) OrderVectorsByY(Vector3 p1, Vector3 p2, Vector3 p3)
