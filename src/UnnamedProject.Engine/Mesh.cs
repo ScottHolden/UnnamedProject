@@ -18,14 +18,14 @@ namespace UnnamedProject.Engine
             _vertices = vertices;
         }
 
-		public IEnumerable<Vector3> GetVerticies()
-		{
+        public IEnumerable<Vector3> GetVerticies()
+        {
             for (int i = 0; i < _vertices.Length; i++)
                 yield return _vertices[i];
         }
 
-		public void Rotate(Vector3 delta)
-		{
+        public void Rotate(Vector3 delta)
+        {
             this.Rotation = Vector3.Add(this.Rotation, delta);
         }
 

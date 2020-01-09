@@ -12,7 +12,7 @@ namespace UnnamedProject.Client.WPF
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-	{
+    {
         private readonly Device? _device;
         private readonly Scene _scene;
         private readonly WriteableBitmap _frontBuffer;
@@ -24,7 +24,7 @@ namespace UnnamedProject.Client.WPF
         private readonly PixelFormat _pixelFormat = PixelFormats.Bgra32;
         private readonly Mesh _boxMesh;
         public MainWindow()
-		{
+        {
             InitializeComponent();
 
             _width = (int)displayImage.Width;
@@ -49,7 +49,7 @@ namespace UnnamedProject.Client.WPF
             displayImage.Source = _frontBuffer;
 
             CompositionTarget.Rendering += CompositionTarget_Rendering;
-		}
+        }
 
         private void CompositionTarget_Rendering(object? sender, EventArgs e)
         {
