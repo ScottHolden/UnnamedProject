@@ -40,7 +40,7 @@ namespace UnnamedProject.Render.Software.UnitTests
         [InlineData(9, 9)]
         public void WithinBounds_IsWithin(int x, int y)
         {
-            bool within = MathHelper.WithinBounds(x, y, WithinBoundsXMin, WithinBoundsXMax, WithinBoundsYMin, WithinBoundsYMax);
+            bool within = MathHelper.WithinBounds(x, y, WithinBoundsXMin, WithinBoundsYMin, WithinBoundsXMax, WithinBoundsYMax);
 
             Assert.True(within);
         }
@@ -54,7 +54,7 @@ namespace UnnamedProject.Render.Software.UnitTests
         [InlineData(11, 5)]
         public void WithinBounds_IsOutside(int x, int y)
         {
-            bool within = MathHelper.WithinBounds(x, y, WithinBoundsXMin, WithinBoundsXMax, WithinBoundsYMin, WithinBoundsYMax);
+            bool within = MathHelper.WithinBounds(x, y, WithinBoundsXMin, WithinBoundsYMin, WithinBoundsXMax, WithinBoundsYMax);
 
             Assert.False(within);
         }
