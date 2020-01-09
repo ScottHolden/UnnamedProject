@@ -8,5 +8,5 @@
         Title="MainWindow"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize">
-    <Image x:Name="displayImage" Height="600" Width="1200" />
+    <Image x:Name="displayImage" Height="600" Width="1000" />
 </Window>

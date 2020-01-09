@@ -27,8 +27,11 @@ namespace UnnamedProject.Client.WPF
         private long _lastFrame = 0;
         private long _lastUpdate = 0;
         private const int SmallestUpdateStep = 5;
-        private const int TargetFPS = 100;
+        private const int TargetFPS = 120;
         private const int MsBetweenFrames = 1000 / TargetFPS;
+        private double _avgFPS = TargetFPS;
+        private const int AvgFPSFilter = 10;
+        private int _fpsUpdate = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -54,7 +57,12 @@ namespace UnnamedProject.Client.WPF
                 _device.Render(_scene);
                 _frontBuffer.WritePixels(_fullRect, _device.GetBuffer(), _stride, 0);
                 _lastFrame = current;
-                this.Title = (1000.0f / sinceLastFrame) + "FPS";
+                _avgFPS = (_avgFPS * (AvgFPSFilter - 1) + (1000.0 / sinceLastFrame)) / AvgFPSFilter;
+                if (_fpsUpdate++ > AvgFPSFilter/2)
+                {
+                    this.Title = Math.Round(_avgFPS, 2) + " FPS";
+                    _fpsUpdate = 0;
+                }
             }
             while (current - _lastUpdate > SmallestUpdateStep)
             {
