@@ -205,3 +205,8 @@ dotnet_diagnostic.CA1062.severity = none
 
 # IDE0005: Using directive is unnecessary.
 dotnet_diagnostic.IDE0005.severity = error
+
+# CA1815:Override equals and operator equals on value types
+#  As I'm lazy.
+#  Todo: Disable this later
+dotnet_diagnostic.CA1815.severity = none
