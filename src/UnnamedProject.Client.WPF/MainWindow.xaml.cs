@@ -26,8 +26,8 @@ namespace UnnamedProject.Client.WPF
         private readonly Stopwatch _stopwatch = Stopwatch.StartNew();
         private long _lastFrame = 0;
         private long _lastUpdate = 0;
-        private const int SmallestUpdateStep = 10;
-        private const int TargetFPS = 60;
+        private const int SmallestUpdateStep = 5;
+        private const int TargetFPS = 100;
         private const int MsBetweenFrames = 1000 / TargetFPS;
         public MainWindow()
         {
