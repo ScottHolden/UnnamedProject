@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\UnnamedProject.Engine\UnnamedProject.Engine.csproj" />
     <ProjectReference Include="..\UnnamedProject.Render.Software\UnnamedProject.Render.Software.csproj" />
+    <ProjectReference Include="..\UnnamedProject.Resources.Demo\UnnamedProject.Resources.Demo.csproj" />
   </ItemGroup>
 
 </Project>

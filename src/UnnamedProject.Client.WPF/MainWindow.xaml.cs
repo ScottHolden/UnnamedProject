@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Numerics;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using UnnamedProject.Engine;
 using UnnamedProject.Render.Software;
+using UnnamedProject.Resources.Demo;
 
 namespace UnnamedProject.Client.WPF
 {
@@ -22,7 +23,12 @@ namespace UnnamedProject.Client.WPF
         private readonly Int32Rect _fullRect;
         private const double DPI = 96.0;
         private readonly PixelFormat _pixelFormat = PixelFormats.Bgra32;
-        private readonly Mesh _boxMesh;
+        private readonly Stopwatch _stopwatch = Stopwatch.StartNew();
+        private long _lastFrame = 0;
+        private long _lastUpdate = 0;
+        private const int SmallestUpdateStep = 10;
+        private const int TargetFPS = 60;
+        private const int MsBetweenFrames = 1000 / TargetFPS;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,20 +37,8 @@ namespace UnnamedProject.Client.WPF
             _height = (int)displayImage.Height;
             _fullRect = new Int32Rect(0, 0, _width, _height);
             _stride = _width * _pixelFormat.BitsPerPixel / 8;
-
             _device = new Device(_width, _height);
-            _scene = new Scene();
-            _boxMesh = new Mesh(new[]{
-                new Vector3(-1, 1, 1),
-                new Vector3(1, 1, 1),
-                new Vector3(-1, -1, 1),
-                new Vector3(-1, -1, -1),
-                new Vector3(-1, 1, -1),
-                new Vector3(1, 1, -1),
-                new Vector3(1, -1, 1),
-                new Vector3(1, -1, -1)
-            });
-            _scene.AddMesh(_boxMesh);
+            _scene = Scenes.BoxScene();
             _frontBuffer = new WriteableBitmap(_width, _height, DPI, DPI, _pixelFormat, null);
             displayImage.Source = _frontBuffer;
 
@@ -53,11 +47,18 @@ namespace UnnamedProject.Client.WPF
 
         private void CompositionTarget_Rendering(object? sender, EventArgs e)
         {
-            _boxMesh.Rotate(new Vector3(0.01f, 0.01f, 0));
-            if (_device != null)
+            long current = _stopwatch.ElapsedMilliseconds;
+            long sinceLastFrame = current - _lastFrame;
+            if (_device != null && sinceLastFrame > MsBetweenFrames)
             {
                 _device.Render(_scene);
                 _frontBuffer.WritePixels(_fullRect, _device.GetBuffer(), _stride, 0);
+                _lastFrame = current;
+            }
+            while (current - _lastUpdate > SmallestUpdateStep)
+            {
+                _scene.Update(SmallestUpdateStep);
+                _lastUpdate += SmallestUpdateStep;
             }
         }
     }

@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnnamedProject.Render.Softw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnnamedProject.Client.WPF", "src\UnnamedProject.Client.WPF\UnnamedProject.Client.WPF.csproj", "{045ED046-CC4F-46D3-B3AA-4E3DAEAD448E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnnamedProject.Resources.Demo", "src\UnnamedProject.Resources.Demo\UnnamedProject.Resources.Demo.csproj", "{10BAFEA9-1A85-4247-ACF1-51D3EE6086C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{045ED046-CC4F-46D3-B3AA-4E3DAEAD448E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{045ED046-CC4F-46D3-B3AA-4E3DAEAD448E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{045ED046-CC4F-46D3-B3AA-4E3DAEAD448E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10BAFEA9-1A85-4247-ACF1-51D3EE6086C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10BAFEA9-1A85-4247-ACF1-51D3EE6086C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10BAFEA9-1A85-4247-ACF1-51D3EE6086C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10BAFEA9-1A85-4247-ACF1-51D3EE6086C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{20DC9FBA-3D62-4B63-9D1A-D58FFF67E746} = {A6CD18FD-AD82-4ED4-9100-00A4892AE99B}
 		{1437160F-2F79-49D7-AA0C-41FA91929C19} = {A6CD18FD-AD82-4ED4-9100-00A4892AE99B}
 		{045ED046-CC4F-46D3-B3AA-4E3DAEAD448E} = {A6CD18FD-AD82-4ED4-9100-00A4892AE99B}
+		{10BAFEA9-1A85-4247-ACF1-51D3EE6086C9} = {A6CD18FD-AD82-4ED4-9100-00A4892AE99B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1556EA07-CC3F-4D2B-9BF0-F08A2D8F9321}

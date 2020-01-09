@@ -12,5 +12,9 @@ namespace UnnamedProject.Physics
         {
             this.Position = position;
         }
+
+        public virtual void Update(long deltaMS)
+        {
+        }
     }
 }
