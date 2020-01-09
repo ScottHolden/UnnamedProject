@@ -16,7 +16,14 @@ namespace UnnamedProject.Render.Software
             var p2 = Vector3.Subtract(lineTo, lineFrom);
             return p1.X * p2.Y - p2.X * p1.Y;
         }
-		public static (Vector3 p1, Vector3 p2, Vector3 p3) OrderVectorsByY(Vector3 p1, Vector3 p2, Vector3 p3)
+        public static (float z, int x) InterpolateZX(int y, Vector3 pa, Vector3 pb)
+        {
+            float gradient = MathHelper.GetGradient(y, pa, pb);
+            float z = MathHelper.Interpolate(pa.Z, pb.Z, gradient);
+            int x = (int)MathHelper.Interpolate(pa.X, pb.X, gradient);
+            return (z, x);
+        }
+        public static (Vector3 p1, Vector3 p2, Vector3 p3) OrderVectorsByY(Vector3 p1, Vector3 p2, Vector3 p3)
 		{
             Vector3 temp;
             if (p1.Y > p2.Y)

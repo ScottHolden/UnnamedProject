@@ -1,4 +1,6 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
+using System.Runtime.CompilerServices;
 using UnnamedProject.Engine;
 
 namespace UnnamedProject.Render.Software
@@ -8,8 +10,11 @@ namespace UnnamedProject.Render.Software
     public class Device
     {
         private const int BytesPerPixel = 4; //BGRA
+        // Todo: Refactor in a QuickClearBuffer
         private readonly byte[] _backBuffer;
+        private readonly byte[] _defaultBackBuffer;
         private readonly float[] _depthBuffer;
+        private readonly float[] _defaultDepthBuffer;
         private readonly Matrix4x4 _projectionMatrix;
         private readonly int _width;
         private readonly int _height;
@@ -20,11 +25,20 @@ namespace UnnamedProject.Render.Software
             _backBuffer = new byte[width * height * BytesPerPixel];
             _depthBuffer = new float[_backBuffer.Length];
             _projectionMatrix = Matrix4x4.CreatePerspective(0.78f, (float)height / width, 0.01f, 1.0f);
+
+            // Quick clear setup
+            _defaultBackBuffer = new byte[_backBuffer.Length];
+            for (int i = 0; i < _backBuffer.Length; i += BytesPerPixel)
+                _defaultBackBuffer[i + 3] = 255;
+
+            _defaultDepthBuffer = new float[_depthBuffer.Length];
+            for (int i = 0; i < _depthBuffer.Length; i++)
+                _defaultDepthBuffer[i] = float.MaxValue;
         }
 
         public void Render(Scene scene)
         {
-            Clear(0, 0, 0, 255);
+            Clear();
             DrawScene(scene);
         }
 
@@ -86,12 +100,9 @@ namespace UnnamedProject.Render.Software
 
         private void DrawScanLine(int y, Vector3 pa, Vector3 pb, Vector3 pc, Vector3 pd, Color color)
         {
-            float gradient1 = MathHelper.GetGradient(y, pa, pb);
-            float gradient2 = MathHelper.GetGradient(y, pc, pd);
-            int sx = (int)MathHelper.Interpolate(pa.X, pb.X, gradient1);
-            int ex = (int)MathHelper.Interpolate(pc.X, pd.X, gradient2);
-            float z1 = MathHelper.Interpolate(pa.Z, pb.Z, gradient1);
-            float z2 = MathHelper.Interpolate(pc.Z, pd.Z, gradient2);
+            (float z1, int sx) = MathHelper.InterpolateZX(y, pa, pb);
+            (float z2, int ex) = MathHelper.InterpolateZX(y, pc, pd);
+
             for (int x = sx; x < ex; x++)
             {
                 float gradient = (x - sx) / (float)(ex - sx);
@@ -118,14 +129,15 @@ namespace UnnamedProject.Render.Software
         }
 
         public byte[] GetBuffer() => _backBuffer;
-        private void Clear(byte b, byte g, byte r, byte a)
+        private void Clear()
         {
-            for (int i = 0; i < _backBuffer.Length; i += BytesPerPixel)
-                Set(i, b, g, r, a);
-            for (int i = 0; i < _depthBuffer.Length; i++)
-                _depthBuffer[i] = float.MaxValue;
+            Array.Copy(_defaultBackBuffer, 0, _backBuffer, 0, _backBuffer.Length);
+            Array.Copy(_defaultDepthBuffer, 0, _depthBuffer, 0, _depthBuffer.Length);
         }
         private int XYToIndex(int x, int y) => (x + y * _width) * BytesPerPixel;
+
+        // Let's get aggressive!
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void Set(int i, byte b, byte g, byte r, byte a)
         {
             _backBuffer[i] = b;
