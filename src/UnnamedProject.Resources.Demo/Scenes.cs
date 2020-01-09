@@ -14,13 +14,7 @@ namespace UnnamedProject.Resources.Demo
             scene.AddMesh(Plane(6));
             return scene;
         }
-        private static readonly Color Red = new Color(255, 0, 0, 255);
-        private static readonly Color Green = new Color(0, 255, 0, 255);
-        private static readonly Color Blue = new Color(0, 0, 255, 255);
-        private static readonly Color LightBlue = new Color(87, 87, 230, 255);
-        private static readonly Color White = new Color(255, 255, 255, 255);
-        private static readonly Color Orange = new Color(255, 85, 30, 255);
-        private static readonly Color Yellow = new Color(255, 225, 50, 255);
+        
         private static Mesh Box() =>
         new SlowlyRotatingMesh(new[]{
                 new Vector3(-3, 3, 3),
@@ -32,18 +26,18 @@ namespace UnnamedProject.Resources.Demo
                 new Vector3(3, -3, -3),
                 new Vector3(-3, -3, -3)
             }, new Face[] {
-                new Face(0, 1, 2, Red  ),
-                new Face(1, 2, 3, Red),
-                new Face(1, 3, 6, Blue ),
-                new Face(1, 5, 6, Blue),
-                new Face(0, 1, 4, Green),
-                new Face(1, 4, 5, Green  ),
-                new Face(2, 3, 7, Orange   ),
-                new Face(3, 6, 7, Orange ),
-                new Face(0, 2, 7, Yellow  ),
-                new Face(0, 4, 7, Yellow   ),
-                new Face(4, 5, 6, White ),
-                new Face(4, 6, 7, White  )
+                new Face(0, 1, 2, Colors.Red  ),
+                new Face(1, 2, 3, Colors.Red),
+                new Face(1, 3, 6, Colors.Blue ),
+                new Face(1, 5, 6, Colors.Blue),
+                new Face(0, 1, 4, Colors.Green),
+                new Face(1, 4, 5, Colors.Green  ),
+                new Face(2, 3, 7, Colors.Orange   ),
+                new Face(3, 6, 7, Colors.Orange ),
+                new Face(0, 2, 7, Colors.Yellow  ),
+                new Face(0, 4, 7, Colors.Yellow   ),
+                new Face(4, 5, 6, Colors.White ),
+                new Face(4, 6, 7, Colors.White  )
             });
         private static Mesh Plane(int size) =>
         new Mesh(new Vector3(0, -size, 0),
@@ -53,8 +47,8 @@ namespace UnnamedProject.Resources.Demo
                 new Vector3(size,0,size),
                 new Vector3(size,0,-size),
             }, new Face[] {
-                new Face(0,1,2, LightBlue),
-                new Face(0,3,2, LightBlue),
+                new Face(0,1,2, Colors.LightBlue),
+                new Face(0,3,2, Colors.LightBlue),
             });
     }
 }
