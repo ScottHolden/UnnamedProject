@@ -54,6 +54,7 @@ namespace UnnamedProject.Client.WPF
                 _device.Render(_scene);
                 _frontBuffer.WritePixels(_fullRect, _device.GetBuffer(), _stride, 0);
                 _lastFrame = current;
+                this.Title = (1000.0f / sinceLastFrame) + "FPS";
             }
             while (current - _lastUpdate > SmallestUpdateStep)
             {

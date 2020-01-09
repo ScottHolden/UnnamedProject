@@ -7,21 +7,26 @@ namespace UnnamedProject.Engine
     public class Mesh : Entity
     {
         private readonly Vector3[] _vertices;
+        private readonly Face[] _faces;
         public Vector3 Rotation { get; private set; }
 
-        public Mesh(Vector3[] vertices) : this(Vector3.Zero, vertices)
+        public Mesh(Vector3[] vertices, Face[] faces) : this(Vector3.Zero, vertices, faces)
         {
         }
 
-        public Mesh(Vector3 position, Vector3[] vertices) : base(position)
+        public Mesh(Vector3 position, Vector3[] vertices, Face[] faces) : base(position)
         {
             _vertices = vertices;
+            _faces = faces;
         }
-
-        public IEnumerable<Vector3> GetVerticies()
-        {
-            for (int i = 0; i < _vertices.Length; i++)
-                yield return _vertices[i];
+		public IEnumerable<(Vector3 start, Vector3 end)> GetFaceLines()
+		{
+            for (int i = 0; i < _faces.Length; i++)
+            {
+                yield return (_vertices[_faces[i].A], _vertices[_faces[i].B]);
+                yield return (_vertices[_faces[i].B], _vertices[_faces[i].C]);
+                yield return (_vertices[_faces[i].C], _vertices[_faces[i].A]);
+            }
         }
 
         public void Rotate(Vector3 delta)
